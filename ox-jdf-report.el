@@ -70,7 +70,7 @@
    (let ((email (plist-get info :email))
          (author (plist-get info :author))
          (title (plist-get info :title))
-         (bib (plist-get info :bibfile))
+         (bib (plist-get info :bibfile)))
      (concat "
 \\addbibresource{" (concat (org-export-data bib info) ".bib") "}
 \\author{" (org-export-data author info) "}
