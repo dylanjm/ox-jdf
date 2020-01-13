@@ -22,17 +22,17 @@
 
 (org-export-define-derived-backend 'jdf 'latex
   :options-alist
-  '((:email "EMAIL" nil "john.doe@gatech.edu")
-    :translate-alist '((template . jdf-template))
-    :menu-entry
-    '(?M "Export with JDF"
-         ((?L "As LaTeX buffer" jdf-export-as-latex)
-          (?l "As LaTeX file" jdf-export-to-latex)
-          (?p "As PDF file" jdf-export-to-pdf)
-          (?o "As PDF file and open"
-              (lambda (a s v b)
-                (if a (jdf-export-to-pdf t s v b)
-                  (org-open-file (jdf-export-to-pdf nil s v b)))))))))
+  '((:email "EMAIL" nil "john.doe@gatech.edu"))
+  :translate-alist '((template . jdf-template))
+  :menu-entry
+  '(?M "Export with JDF"
+       ((?L "As LaTeX buffer" jdf-export-as-latex)
+        (?l "As LaTeX file" jdf-export-to-latex)
+        (?p "As PDF file" jdf-export-to-pdf)
+        (?o "As PDF file and open"
+            (lambda (a s v b)
+              (if a (jdf-export-to-pdf t s v b)
+                (org-open-file (jdf-export-to-pdf nil s v b))))))))
 
 
 (defun jdf-template (contents info)
