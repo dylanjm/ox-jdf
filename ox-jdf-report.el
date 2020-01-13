@@ -23,10 +23,11 @@
 
 (org-export-define-derived-backend 'jdf 'latex
   :options-alist
-  '((:email "EMAIL" nil "john.doe@gatech.edu"))
+  '((:email "EMAIL" nil "john.doe@gatech.edu")
+    (:bibfile "BIBFILE" nil nil))
   :translate-alist '((template . jdf-template))
   :menu-entry
-  '(?M "Export with JDF"
+  '(?J "Export with JDF"
        ((?L "As LaTeX buffer" jdf-export-as-latex)
         (?l "As LaTeX file" jdf-export-to-latex)
         (?p "As PDF file" jdf-export-to-pdf)
@@ -68,8 +69,10 @@
    ;; Now the core content
    (let ((email (plist-get info :email))
          (author (plist-get info :author))
-         (title (plist-get info :title)))
+         (title (plist-get info :title))
+         (bib (plist-get info :bibfile))
      (concat "
+\\addbibresource{" (concat (org-export-data bib info) ".bib") "}
 \\author{" (org-export-data author info) "}
 \\email{" (org-export-data email info) "}
 \\title{" (org-export-data title info) "}
