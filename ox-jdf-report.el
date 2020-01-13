@@ -15,8 +15,9 @@
 [PACKAGES]
 [EXTRA]"
                ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*a{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\subsubsubsection{%s}" . "\\subsubsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
