@@ -65,7 +65,7 @@
         info)))
 
    ;; Now the core content
-   (let ((email (plist-get info :gaemail))
+   (let ((email (plist-get info :email))
          (author (plist-get info :author))
          (title (plist-get info :title)))
      (concat "
