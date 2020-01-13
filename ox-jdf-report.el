@@ -7,6 +7,9 @@
 ;;;
 ;;; Code:
 (require 'ox)
+(require 'bibtex)
+
+(setq-default bibtex-dialect 'biblatex)
 
 (add-to-list 'org-latex-classes
              '("jdf"
