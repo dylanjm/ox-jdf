@@ -23,8 +23,7 @@
 
 (org-export-define-derived-backend 'jdf 'latex
   :options-alist
-  '((:email "EMAIL" nil "john.doe@gatech.edu")
-    (:bibfile "BIBFILE" nil nil))
+  '((:email "EMAIL" nil "john.doe@gatech.edu"))
   :translate-alist '((template . jdf-template))
   :menu-entry
   '(?J "Export with JDF"
@@ -37,42 +36,41 @@
                 (org-open-file (jdf-export-to-pdf nil s v b))))))))
 
 
-(defun jdf-template (contents info)
-  "return complete document string for this export"
-  (concat
-   ;; Time-stamp.
-   (and (plist-get info :time-stamp-file)
-        (format-time-string "%% Created %Y-%m-%d %a %H:%M\n"))
-   ;; Document class and packages.
-   (let* ((class (plist-get info :latex-class))
-          (class-options (plist-get info :latex-class-options))
-          (header (nth 1 (assoc class org-latex-classes)))
-          (document-class-string
-           (and (stringp header)
-                (if (not class-options) header
-                  (replace-regexp-in-string
-                   "^[ \t]*\\\\documentclass\\(\\(\\[[^]]*\\]\\)?\\)"
-                   class-options header t nil 1)))))
-     (if (not document-class-string)
-         (user-error "Unknown LaTeX class `%s'" class)
-       (org-latex-guess-babel-language
-        (org-latex-guess-inputenc
-         (org-element-normalize-string
-          (org-splice-latex-header
-           document-class-string
-           org-latex-default-packages-alist ; Defined in org.el.
-           org-latex-packages-alist nil     ; Defined in org.el.
-           (concat (org-element-normalize-string (plist-get info :latex-header))
-                   (plist-get info :latex-header-extra)))))
-        info)))
+  (defun jdf-template (contents info)
+    "return complete document string for this export"
+    (concat
+     ;; Time-stamp.
+     (and (plist-get info :time-stamp-file)
+          (format-time-string "%% Created %Y-%m-%d %a %H:%M\n"))
+     ;; Document class and packages.
+     (let* ((class (plist-get info :latex-class))
+            (class-options (plist-get info :latex-class-options))
+            (header (nth 1 (assoc class org-latex-classes)))
+            (document-class-string
+             (and (stringp header)
+                  (if (not class-options) header
+                    (replace-regexp-in-string
+                     "^[ \t]*\\\\documentclass\\(\\(\\[[^]]*\\]\\)?\\)"
+                     class-options header t nil 1)))))
+       (if (not document-class-string)
+           (user-error "Unknown LaTeX class `%s'" class)
+         (org-latex-guess-babel-language
+          (org-latex-guess-inputenc
+           (org-element-normalize-string
+            (org-splice-latex-header
+             document-class-string
+             org-latex-default-packages-alist ; Defined in org.el.
+             org-latex-packages-alist nil     ; Defined in org.el.
+             (concat (org-element-normalize-string (plist-get info :latex-header))
+                     (plist-get info :latex-header-extra)))))
+          info)))
 
-   ;; Now the core content
-   (let ((email (plist-get info :email))
-         (author (plist-get info :author))
-         (title (plist-get info :title))
-         (bib (plist-get info :bibfile)))
-     (concat "
-\\addbibresource{" (concat (org-export-data bib info) ".bib") "}
+     ;; Now the core content
+     (let ((email (plist-get info :email))
+           (author (plist-get info :author))
+           (title (plist-get info :title))
+           (bib (plist-get info :bibfile)))
+       (concat "
 \\author{" (org-export-data author info) "}
 \\email{" (org-export-data email info) "}
 \\title{" (org-export-data title info) "}
