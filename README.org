@@ -12,6 +12,12 @@ This repo is an Emacs Org-Mode recreation of the Joyner Document Format template
 + Insane table support! You can treat org-tables as spreadsheets with formulas and lookup values.
 + Many, many more!
 
+| Org File                   | PDF Export                 |
+|----------------------------+----------------------------|
+| [[file:assets/org-format.png]] | [[file:assets/pdf-format.png]] |
+|                            |                            |
+
+
 ** Installation & Setup
 
 ** Things to Note
