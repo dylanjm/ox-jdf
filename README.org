@@ -1,4 +1,4 @@
-#+title: OX-JDF - Org-Mode Joyner Document Format Report Template
+#+title: Joyner Document Format Org Template
 
 * About
 
