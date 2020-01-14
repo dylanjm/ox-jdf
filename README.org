@@ -25,7 +25,7 @@ This repo is an Emacs Org-Mode recreation of the Joyner Document Format template
 : # Right
 : **** Heading 4
 : This is the text associated with the run-in sidehead.
-:
+
 : # Wrong
 : **** Heading 4
 :
