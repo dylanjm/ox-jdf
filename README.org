@@ -18,7 +18,36 @@ This repo is an Emacs Org-Mode recreation of the Joyner Document Format template
 |                            |                            |
 
 
-** Installation & Setup
+** Installation
+
+This packages is currently *not* on MELPA, so you can download it one of two ways:
+
+*** Manual Install
+1. Clone or download this repo to your local computer and ensure that it is in your =load-path=.
+2. In your =init.el= file, put =(require 'ox-jdf-report)=
+
+*** Straight Package Manager
+Put the following in your =init.el= file:
+
+#+begin_src emacs-lisp
+  (use-package ox-jdf-report
+    :straight (:host github :repo "dylanjm/ox-jdf"))
+#+end_src
+
+Make sure that you have the following packages installed and ready to use by your config:
++ [[https://github.com/raxod502/straight.el][straight.el]]
++ [[https://github.com/jwiegley/use-package][use-package.el]]
+
+** Setup
+
+In order for this to work you'll need the following software and packages:
+
++ Emacs >= 26.0.1
++ =org-mode= >= 9.0
++ Current LaTeX installation (MacTeX, TinyTeX, etc)
++ =latexmk= (Should come with MacTeX)
+
+Once you've setup your config to load =ox-jdf-report=, open up the file =example/jdf-starter-org=. This is an example format of how to use the file. Note the file-variable settings at the top of the file. Those will be required to properly export the file to PDF. When you are ready to export use =C-c C-e J o= to export the file to PDF and open it in your default PDF viewer. You can also run the command =M-x jdf-export-to-pdf-and-open= to get the same results.
 
 ** Things to Note
 + *Note:* Subheading 4 and higher are classified as a run-in sidehead. In order for it to format correctly upon export there *cannot* be an empty line between the heading and the associated text.
