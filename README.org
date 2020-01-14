@@ -76,3 +76,7 @@ Once you've setup your config to load =ox-jdf-report=, open up the file =example
 :
 : This is the text associated with the run-in sidehead.
 #+end_example
+
+** Contribute
+
+Feel free to open an issue if you find a bug or a feature request.
