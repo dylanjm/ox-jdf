@@ -22,11 +22,13 @@ This repo is an Emacs Org-Mode recreation of the Joyner Document Format template
 
 ** Things to Note
 + *Note:* Subheading 4 and higher are classified as a run-in sidehead. In order for it to format correctly upon export there *cannot* be an empty line between the heading and the associated text.
-: # Right
+#+begin_example
+# Right
 : **** Heading 4
 : This is the text associated with the run-in sidehead.
-
-: # Wrong
+:
+# Wrong
 : **** Heading 4
 :
 : This is the text associated with the run-in sidehead.
+#+end_example
