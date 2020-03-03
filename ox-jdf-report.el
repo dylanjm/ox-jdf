@@ -20,21 +20,19 @@
                ("\\subsubsubsection{%s}" . "\\subsubsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-
 (org-export-define-derived-backend 'jdf 'latex
-  :options-alist
-  '((:email "EMAIL" nil "john.doe@gatech.edu"))
-  :translate-alist '((template . jdf-template))
-  :menu-entry
-  '(?J "Export with JDF"
-       ((?L "As LaTeX buffer" jdf-export-as-latex)
-        (?l "As LaTeX file" jdf-export-to-latex)
-        (?p "As PDF file" jdf-export-to-pdf)
-        (?o "As PDF file and open"
-            (lambda (a s v b)
-              (if a (jdf-export-to-pdf t s v b)
-                (org-open-file (jdf-export-to-pdf nil s v b))))))))
+                                   :options-alist
+                                   '((:email "EMAIL" nil "john.doe@gatech.edu"))
+                                   :translate-alist '((template . jdf-template))
+                                   :menu-entry
+                                   '(?J "Export with JDF"
+                                        ((?L "As LaTeX buffer" jdf-export-as-latex)
+                                         (?l "As LaTeX file" jdf-export-to-latex)
+                                         (?p "As PDF file" jdf-export-to-pdf)
+                                         (?o "As PDF file and open"
+                                             (lambda (a s v b)
+                                               (if a (jdf-export-to-pdf t s v b)
+                                                 (org-open-file (jdf-export-to-pdf nil s v b))))))))
 
 
 (defun jdf-template (contents info)
@@ -85,7 +83,7 @@ contents
 
 ;;;###autoload
 (defun jdf-export-as-latex
-    (&optional async subtreep visible-only body-only ext-plist)
+  (&optional async subtreep visible-only body-only ext-plist)
   "Export current buffer as a JDF report letter.
 If narrowing is active in the current buffer, only export its
 narrowed part.
@@ -113,7 +111,7 @@ non-nil."
 
 ;;;###autoload
 (defun jdf-export-to-latex
-    (&optional async subtreep visible-only body-only ext-plist)
+  (&optional async subtreep visible-only body-only ext-plist)
   "Export current buffer as a JDF report (tex).
 If narrowing is active in the current buffer, only export its
 narrowed part.
@@ -135,13 +133,13 @@ directory.
 Return output file's name."
   (interactive)
   (let ((outfile (org-export-output-file-name ".tex" subtreep))
-        (jdf-special-contents))
+         (jdf-special-contents))
     (org-export-to-file 'jdf outfile
       async subtreep visible-only body-only ext-plist)))
 
 ;;;###autoload
 (defun jdf-export-to-pdf
-    (&optional async subtreep visible-only body-only ext-plist)
+  (&optional async subtreep visible-only body-only ext-plist)
   "Export current buffer as a JDF report (pdf).
 If narrowing is active in the current buffer, only export its
 narrowed part.
@@ -162,14 +160,13 @@ file-local settings.
 Return PDF file's name."
   (interactive)
   (let ((file (org-export-output-file-name ".tex" subtreep))
-        (jdf-special-contents))
+         (jdf-special-contents))
     (org-export-to-file 'jdf file
       async subtreep visible-only body-only ext-plist
       (lambda (file) (org-latex-compile file)))))
 
 ;;;###autoload
-(defun jdf-export-to-pdf-and-open
-    (&optional async subtreep visible-only body-only ext-plist)
+(defun jdf-export-to-pdf-and-open (&optional async subtreep visible-only body-only ext-plist)
   "Export current buffer as a JDF report (pdf) and open the file in default
 PDF Viewer."
   (interactive)
