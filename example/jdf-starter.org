@@ -3,7 +3,7 @@
 #+AUTHOR: Author Name
 #+EMAIL: username@gatech.edu
 #+STARTUP: showeverything
-#+OPTIONS: toc:nil H:4
+#+OPTIONS: H:4
 #+LATEX_CLASS: jdf
 #+LATEX_HEADER: \addbibresource{references.bib}
 
@@ -15,7 +15,7 @@ Welcome to Joyner Document Format (JDF) v2.2! JDF is primarily intended to stand
 
 * Typography
 
-All text in JDF should be set in the Palatino typeface. It is available practically everywhere as a system font: Microsoft ships a version called /Palatino Linotype/, and Apple uses a version simply called /Palatino/. Those without either can look for /Book Antiqua/ in their fonts list or download [[https://www.ctan.org/tex-archive/fonts/tex-gyre/opentype][$\TeX \ $ Gyre Pagella]] from CTAN. They all come in regular and bold weights with matching italics.
+All text in JDF should be set in the Palatino typeface. It is available practically everywhere as a system font: Microsoft ships a version called /Palatino Linotype/, and Apple uses a version simply called /Palatino/. Those without either can look for /Book Antiqua/ in their fonts list or download [[https://www.ctan.org/tex-archive/fonts/tex-gyre/opentype][\TeX{} Gyre Pagella]] from CTAN. They all come in regular and bold weights with matching italics.
 
 ** Body text
 
@@ -35,7 +35,7 @@ If your paper requires an abstract, it should be placed at the top of the first 
 
 ** Headings
 
-Headings should all be set in the same size as body text (11 pt) in bold. With the exception of /Heading 1/, they should all have 8.5 pt of space before and after. They should be hierarchically numbered: Word, Pages, and $\LaTeX \ $ will do this automatically when you use the appropriate paragraph styles, but Google Docs users will need to number their headings manually. Headings should not span more than one line.
+Headings should all be set in the same size as body text (11 pt) in bold. With the exception of /Heading 1/, they should all have 8.5 pt of space before and after. They should be hierarchically numbered: Word, Pages, and \LaTeX{} will do this automatically when you use the appropriate paragraph styles, but Google Docs users will need to number their headings manually. Headings should not span more than one line.
 
 *** Heading 1
 
@@ -43,10 +43,9 @@ Heading 1 should be set in all caps, with letterspacing expanded by 0.66 points 
 
 *** Headings 2–4
 
-Besides /Heading 1/, which is set in caps, headings should always use sentence case (i.e., first word capitalized) rather than title case; after all, they are not titles. /Heading 2/ should be set in bold roman (upright), and /Heading 3/ should be set in bold italics. The use of headings beyond /Heading 3/ is discouraged.
+Besides /Heading 1/, which is set in caps, headings should always use sentence case (i.e. first word capitalized) rather than title case; after all, they are not titles. /Heading 2/ should be set in bold roman (upright), and /Heading 3/ should be set in bold italics. The use of headings beyond /Heading 3/ is discouraged.
 
 **** Heading 4
-
 /Heading 4/ is provided as a run-in sidehead. Like /Heading 3/, it is set in bold italics, but it should be followed by an em dash and flow right into the text, as seen at the beginning of the current paragraph. It should be used more as a list style than a heading style, e.g. to set off a list of principles in a heuristic evaluation.
 
 ** Page layout

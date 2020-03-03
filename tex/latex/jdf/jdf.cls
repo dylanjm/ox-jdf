@@ -117,8 +117,7 @@
 
 %%
 % Abstract
-\renewenvironment{abstract}
-{\begin{center}\begin{adjustwidth}{0.5in}{0.5in}\normalfont\textbf{\textit{Abstract\hairsp—\hairsp}}\ignorespaces}{\end{adjustwidth}\vspace{-11pt}\end{center}}
+\renewenvironment{abstract}{\begin{center}\begin{adjustwidth}{0.5in}{0.5in}\normalfont\textbf{\textit{Abstract\hairsp—\hairsp}}\ignorespaces}{\end{adjustwidth}\vspace{-11pt}\end{center}}
 
 
 %%

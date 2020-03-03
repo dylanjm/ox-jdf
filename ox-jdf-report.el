@@ -9,30 +9,31 @@
 (require 'ox)
 
 (add-to-list 'org-latex-classes
-             '("jdf"
-               "\\documentclass[letterpaper]{jdf}
+  '("jdf"
+     "\\documentclass[letterpaper]{jdf}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRA]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\subsubsubsection{%s}" . "\\subsubsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+     ("\\section{%s}" . "\\section{%s}")
+     ("\\subsection{%s}" . "\\subsection{%s}")
+     ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+     ("\\subsubsubsection{%s}" . "\\subsubsubsection{%s}")
+     ("\\paragraph{%s}" . "\\paragraph{%s}")
+     ("\\subparagraph{%s}" . "\\subparagraph{%s}")))
+
 (org-export-define-derived-backend 'jdf 'latex
-                                   :options-alist
-                                   '((:email "EMAIL" nil "john.doe@gatech.edu"))
-                                   :translate-alist '((template . jdf-template))
-                                   :menu-entry
-                                   '(?J "Export with JDF"
-                                        ((?L "As LaTeX buffer" jdf-export-as-latex)
-                                         (?l "As LaTeX file" jdf-export-to-latex)
-                                         (?p "As PDF file" jdf-export-to-pdf)
-                                         (?o "As PDF file and open"
-                                             (lambda (a s v b)
-                                               (if a (jdf-export-to-pdf t s v b)
-                                                 (org-open-file (jdf-export-to-pdf nil s v b))))))))
+  :options-alist
+  '((:email "EMAIL" nil "john.doe@gatech.edu"))
+  :translate-alist '((template . jdf-template))
+  :menu-entry
+  '(?J "Export with JDF"
+     ((?L "As LaTeX buffer" jdf-export-as-latex)
+       (?l "As LaTeX file" jdf-export-to-latex)
+       (?p "As PDF file" jdf-export-to-pdf)
+       (?o "As PDF file and open"
+         (lambda (a s v b)
+           (if a (jdf-export-to-pdf t s v b)
+             (org-open-file (jdf-export-to-pdf nil s v b))))))))
 
 
 (defun jdf-template (contents info)
