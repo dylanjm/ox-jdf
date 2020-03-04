@@ -51,6 +51,7 @@
 \RequirePackage[english]{babel}
 
 % Set fonts
+\RequirePackage{lmodern}
 \RequirePackage[osf]{mathpazo} % Palatino with oldstyle figures
 \newcommand\liningnums[1]{\fontfamily{ppl}\selectfont#1} % Enable switch to lining nums
 \RequirePackage{amsmath, amssymb}
@@ -74,6 +75,12 @@
 
 \SetTracking{encoding=*}{10}
 \lsstyle
+
+% Tiks
+\RequirePackage{subfig}
+\RequirePackage{multicol}
+\RequirePackage{tikz}
+\usetikzlibrary{backgrounds, calc, positioning, fit, arrows, arrows.meta}
 
 \newcommand\lsstylehelp[1]{\edef\MT@letterspace@{#1}\lsstyle} % Enable change to letterspacing
 \newcommand{\hairsp}{\ifmmode\mskip1mu\else\kern0.083em\fi}
@@ -270,5 +277,5 @@
     colorlinks,
     citecolor=linkBlue,
     urlcolor=linkBlue,
-    linkcolor=linkBlue
+    linkcolor=linkBlue,
 }
